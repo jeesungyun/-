@@ -3,7 +3,7 @@ import { generateToken } from '../../lib/auth';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { id, name, password, university, verified } = req.body;
+        const { id, name, password, university, verified} = req.body;
 
         const user = await fetchUser(id);
         if (user) {
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
             return;
         }
 
-        await createUser({ id, name, password, university, verified });
+        await createUser({ id, name, password, university, verified});
         // const token = generateToken(id);
         // res.setHeader(
         //     'Set-Cookie',
