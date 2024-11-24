@@ -4,11 +4,11 @@ import bcrypt from 'bcrypt';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { username, password } = req.body;
+        const { id, password } = req.body;
 
-        const user = await fetchUser(username);
+        const user = await fetchUser(id);
         if (!user) {
-            res.status(400).json({ error: `Not registered username: ${username}` });
+            res.status(400).json({ error: `Not registered id: ${id}` });
             return;
         }
 
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
             return;
         }
 
-        const token = generateToken(username);
+        const token = generateToken(id);
         res.setHeader(
             'Set-Cookie',
             `USER_VALIDATION_COOKIE=${token}; Path=/; HttpOnly`

@@ -2,11 +2,11 @@ import { fetchUser, removeUser } from '../../lib/users';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { username } = req.body;
+        const { id } = req.body;
 
-        const user = await fetchUser(username);
+        const user = await fetchUser(id);
         if (user) {
-            await removeUser(username);
+            await removeUser(id);
             res.setHeader(
                 'Set-Cookie',
                 `USER_VALIDATION_COOKIE=; Path=/; HttpOnly; Max-Age=0`

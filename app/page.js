@@ -30,7 +30,7 @@ export default function HomePage() {
             {user ? (
                 <>
                     <h1>{user.name}님, 어서오세요!</h1>
-                    <p>Username: {user.username}</p>
+                    <p>ID: {user.id}</p>
                     <div>
                         <button onClick={handleLogout}>Log Out</button>
                         <button onClick={() => router.push('/withdraw')}>Withdraw</button>

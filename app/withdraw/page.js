@@ -23,7 +23,7 @@ export default function WithdrawPage() {
     const handleWithdraw = async () => {
         const res = await fetch('/api/withdraw', {
             method: 'POST',
-            body: JSON.stringify({ username: user.username }),
+            body: JSON.stringify({ id: user.id }),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -41,7 +41,7 @@ export default function WithdrawPage() {
             {user ? (
                 <>
                     <h1>Are you sure you want to withdraw your account?</h1>
-                    <p>Username: {user.username}</p>
+                    <p>ID: {user.id}</p>
                     <p>Name: {user.name}</p>
                     <button onClick={handleWithdraw}>Yes, Withdraw</button>
                 </>
