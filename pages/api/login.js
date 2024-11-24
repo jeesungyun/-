@@ -18,6 +18,11 @@ export default async function handler(req, res) {
             return;
         }
 
+        if (!user.verified) {
+            res.status(400).json({ error: 'Awaiting administrator approval'});
+            return;
+        }
+
         const token = generateToken(id);
         res.setHeader(
             'Set-Cookie',
