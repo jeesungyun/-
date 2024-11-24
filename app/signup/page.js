@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function SignupPage() {
-    const [username, setUsername] = useState('');
+    const [id, setUsername] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
@@ -13,7 +13,7 @@ export default function SignupPage() {
         const res = await fetch('/api/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, name, password }),
+            body: JSON.stringify({ id, name, password }),
         });
 
         if (res.ok) {
@@ -27,7 +27,7 @@ export default function SignupPage() {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Username: <input value={username} onChange={e => setUsername(e.target.value)} />
+                ID: <input value={id} onChange={e => setUsername(e.target.value)} />
             </label>
             <br />
             <label>

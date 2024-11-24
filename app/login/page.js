@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
-    const [username, setUsername] = useState('');
+    const [id, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
 
@@ -12,7 +12,7 @@ export default function LoginPage() {
         const res = await fetch('/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ id, password }),
         });
 
         if (res.ok) {
@@ -26,7 +26,7 @@ export default function LoginPage() {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Username: <input value={username} onChange={e => setUsername(e.target.value)} />
+                ID: <input value={id} onChange={e => setUsername(e.target.value)} />
             </label>
             <br />
             <label>
