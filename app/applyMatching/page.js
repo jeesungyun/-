@@ -11,6 +11,7 @@ export default function SignupPage() {
     const [timeEnd, setTimeEnd] = useState(-1);
     const [minHeadCount, setMinHeadCount] = useState(-1);
     const [maxHeadCount, setMaxHeadCount] = useState(-1);
+    const [region, setRegion] = useState('');
     const router = useRouter();
 
     // 로그인 상태를 확인하는 useEffect 추가
@@ -69,6 +70,15 @@ export default function SignupPage() {
                 <input 
                     value={interest} 
                     onChange={(e) => setInterest(e.target.value)} 
+                    required 
+                />
+            </label>
+            <br />
+            <label>
+                Region: 
+                <input 
+                    value={region} 
+                    onChange={(e) => setRegion(e.target.value)} 
                     required 
                 />
             </label>
