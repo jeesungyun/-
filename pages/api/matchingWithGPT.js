@@ -7,11 +7,9 @@ const APPLYMATCHINGS_JSON_FILENAME = 'applyMatchings.json';
 // cron job 설정: 매 5분마다 실행
 cron.schedule('*/1 * * * *', async () => { // async 추가
     console.log('1분마다 실행되는 서버 측 코드');
-console.log(`apiKey: ${process.env.OPENAI_API_KEY}`)
     const openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY,
     });
-console.log('1');
     try {
         const data = await fs.readFile(APPLYMATCHINGS_JSON_FILENAME, 'utf8'); // await 추가
         const list = JSON.parse(data);
