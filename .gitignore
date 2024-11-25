@@ -41,4 +41,5 @@ next-env.d.ts
 
 # database
 users.json
+applyMatchings.json
 /public/uploads

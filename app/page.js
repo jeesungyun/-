@@ -34,6 +34,7 @@ export default function HomePage() {
                     <div>
                         <button onClick={handleLogout}>Log Out</button>
                         <button onClick={() => router.push('/withdraw')}>Withdraw</button>
+                    <button onClick={() => router.push('/applyMatching')}>Apply Matching</button>
                     </div>
                 </>
             ) : (
